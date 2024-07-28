@@ -12,16 +12,17 @@ export const userDataContext = createContext();
 function App() {
   const [userData, setUserData] = useState([]);
 
-  // useEffect(() => {
-  //   let tm = localStorage.getItem("profiles");
-  //   tm = JSON.parse(tm);
-  //   if (tm && tm.length) setUserData(tm);
-  // }, []);
+  useEffect(() => {
+    let tm = localStorage.getItem("profiles");
+    tm = JSON.parse(tm);
+    if (tm && tm.length > 0) setUserData(tm);
+  }, []);
 
-  // useEffect(() => {
-  //   let tm = JSON.stringify(userData);
-  //   localStorage.setItem("profiles", tm);
-  // }, [userData]);
+  useEffect(() => {
+    let tm = JSON.stringify(userData);
+    localStorage.setItem("profiles", tm);
+    // console.log(userData)
+  }, [userData]);
 
   return (
     <BrowserRouter>
